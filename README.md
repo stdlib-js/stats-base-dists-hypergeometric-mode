@@ -67,7 +67,7 @@ Imagine a scenario with a population of size `N`, of which a subpopulation of si
 ## Usage
 
 ```javascript
-import mode from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-hypergeometric-mode@deno/mod.js';
+import mode from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-hypergeometric-mode@v0.1.1-deno/mod.js';
 ```
 
 #### mode( N, K, n )
@@ -141,7 +141,7 @@ v = mode( 10, 12, 5 );
 ```javascript
 import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@deno/mod.js';
 import round from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@deno/mod.js';
-import mode from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-hypergeometric-mode@deno/mod.js';
+import mode from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-hypergeometric-mode@v0.1.1-deno/mod.js';
 
 var v;
 var i;
