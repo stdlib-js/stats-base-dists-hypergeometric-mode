@@ -60,14 +60,32 @@ Imagine a scenario with a population of size `N`, of which a subpopulation of si
 
 <!-- Package usage documentation. -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/stats-base-dists-hypergeometric-mode
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import mode from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-hypergeometric-mode@esm/index.mjs';
+var mode = require( '@stdlib/stats-base-dists-hypergeometric-mode' );
 ```
 
 #### mode( N, K, n )
@@ -138,15 +156,10 @@ v = mode( 10, 12, 5 );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="module">
-
-import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@esm/index.mjs';
-import round from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@esm/index.mjs';
-import mode from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-hypergeometric-mode@esm/index.mjs';
+```javascript
+var randu = require( '@stdlib/random-base-randu' );
+var round = require( '@stdlib/math-base-special-round' );
+var mode = require( '@stdlib/stats-base-dists-hypergeometric-mode' );
 
 var v;
 var i;
@@ -161,10 +174,6 @@ for ( i = 0; i < 10; i++ ) {
     v = mode( N, K, n );
     console.log( 'N: %d, K: %d, n: %d, mode(X;N,K,n): %d', N, K, n, v.toFixed( 4 ) );
 }
-
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -173,7 +182,102 @@ for ( i = 0; i < 10; i++ ) {
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/stats/base/dists/hypergeometric/mode.h"
+```
+
+#### stdlib_base_dists_hypergeometric_mode( N, K, n )
+
+Returns the mode of a hypergeometric distribution.
+
+```c
+double out = stdlib_base_dists_hypergeometric_mode( 16, 11, 4 );
+// returns 3.0
+```
+
+The function accepts the following arguments:
+
+-   **N**: `[in] int32_t` population size.
+-   **K**: `[in] int32_t` subpopulation size.
+-   **n**: `[in] int32_t` number of draws.
+
+```c
+double stdlib_base_dists_hypergeometric_mode( const int32_t N, const int32_t K, const int32_t n );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/stats/base/dists/hypergeometric/mode.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdint.h>
+
+static int32_t random_int( const int32_t min, const int32_t max ) {
+    int32_t v = rand() % ( max - min + 1 );
+    return min + v;
+}
+
+int main( void ) {
+    int32_t N;
+    int32_t K;
+    int32_t n;
+    double y;
+    int i;
+
+    for ( i = 0; i < 10; i++ ) {
+        N = random_int( 1, 20 );
+        K = random_int( 0, N );
+        n = random_int( 0, K );
+        y = stdlib_base_dists_hypergeometric_mode( N, K, n );
+        printf( "N: %d, K: %d, n: %d, mode(X;N,K,n): %.4f\n", N, K, n, y );
+    }
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
@@ -192,7 +296,7 @@ for ( i = 0; i < 10; i++ ) {
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -222,11 +326,11 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 [npm-image]: http://img.shields.io/npm/v/@stdlib/stats-base-dists-hypergeometric-mode.svg
 [npm-url]: https://npmjs.org/package/@stdlib/stats-base-dists-hypergeometric-mode
 
-[test-image]: https://github.com/stdlib-js/stats-base-dists-hypergeometric-mode/actions/workflows/test.yml/badge.svg?branch=main
-[test-url]: https://github.com/stdlib-js/stats-base-dists-hypergeometric-mode/actions/workflows/test.yml?query=branch:main
+[test-image]: https://github.com/stdlib-js/stats-base-dists-hypergeometric-mode/actions/workflows/test.yml/badge.svg?branch=v0.3.0
+[test-url]: https://github.com/stdlib-js/stats-base-dists-hypergeometric-mode/actions/workflows/test.yml?query=branch:v0.3.0
 
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/stats-base-dists-hypergeometric-mode/main.svg
-[coverage-url]: https://codecov.io/github/stdlib-js/stats-base-dists-hypergeometric-mode?branch=main
+[coverage-url]: https://codecov.io/github/stdlib-js/stats-base-dists-hypergeometric-mode?branch=v0.3.0
 
 <!--
 
